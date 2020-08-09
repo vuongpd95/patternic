@@ -1,6 +1,8 @@
 require "patternic/version"
 
 module Patternic
+  autoload :InheritableHelpers, 'patternic/inheritable_helpers'
+
   class Error < StandardError; end
-  # Your code goes here...
+  class MethodNotImplementedError < Error; end
 end
