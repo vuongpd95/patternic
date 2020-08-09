@@ -1,8 +1,6 @@
 # Patternic
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/patternic`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Patternic helps you enforce design patterns in your codebase. 
 
 ## Installation
 
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Raise an error if child class didn't implement a method required by its parent class
+
+```
+class Animal
+  include Patternic::InheritableHelpers
+
+  def speak
+    raise_if_not_implemented
+  end
+end
+
+class Dog < Animal; end
+
+Dog.new.speak
+
+=> Patternic::MethodNotImplementedError (Dog#speak is not implemented!)
+```
 
 ## Development
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/patternic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/vuongpd95/patternic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +54,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Patternic project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/patternic/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Patternic project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/vuongpd95/patternic/blob/master/CODE_OF_CONDUCT.md).
